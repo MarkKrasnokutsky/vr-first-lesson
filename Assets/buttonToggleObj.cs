@@ -8,15 +8,18 @@ public class buttonToggleObj : MonoBehaviour, IPointerClickHandler
 {
     
     public GameObject objectToToggle;
+    public Button toggleButton;
 
     private bool isObjectActive = true;
+    // Start is called before the first frame update
+    void Start()
+    {
+        toggleButton.onClick.AddListener(ToggleObject);
+    }
 
-
-
-    public void OnPointerClick(PointerEventData eventData)
+    public void ToggleObject()
     {
         isObjectActive = !isObjectActive;
         objectToToggle.SetActive(isObjectActive);
     }
-
 }
